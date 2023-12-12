@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Virtual Cooking Academy</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+    <!-- <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script> -->
+    <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script>
+    <!-- <script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></script> -->
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script> -->
+    <script
+        src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="./aframe-particle-system-component.min.js"></script>
+    <script src="./index.js"></script>
+    <script src="./a-components.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+        .buttons {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            height: 10em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .b1,
+        .b2,
+        .b3,
+        .b4 {
+            margin: 5px;
+            padding: 5px;
+            border: 2px solid white;
+            border-radius: 10px;
+            background: lightblue;
+            color: black;
+            font-weight: bold;
+            font-size: 14px;
+            font-family: Poppins, fantasy;
+            width: 4em;
+            height: 3 em;
+        }
+
+        .b1:active,
+        .b2:active,
+        .b3:active,
+        .b4:active {
+            background-color: #A9A9A9;
+            transform: translateY(4px);
+        }
+
+        .b1:hover,
+        .b2:hover,
+        .b3:hover,
+        .b4:hover {
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <div class="buttons">
+        <button id="back" class="b1">Back</button>
+        <!--           <button  class="b2">Down</button>
+          <button class="b3">Up</button> -->
+        <button id="next" class="b4">Next</button>
+    </div>
+    <a-scene physics="debug:true; gravity: -9.8" cursor="rayOrigin: mouse">
+        <a-assets>
+            <a-asset-item id="knife" src="VR_Project_Assets/knife.glb"></a-asset-item>
+            <a-asset-item id="emptyCrust" src="VR_Project_Assets/Making the Crust.glb"></a-asset-item>
+            <a-asset-item id="pepeporoni" src="VR_Project_Assets/pepperoni.glb"></a-asset-item>
+            <a-asset-item id="cheese" src="VR_Project_Assets/cheese.glb"></a-asset-item>
+            <a-asset-item id="roll" src="VR_Project_Assets/wooden_rolling_pin.glb"></a-asset-item>
+            <a-asset-item id="fryingPan" src="VR_Project_Assets/free_model_old_rusty_frying_pan.glb"></a-asset-item>
+            <img id="tiles" src="VR_Project_Assets/marbled-tiles.jpg" />
+            <img id="tiles-nm" src="VR_Project_Assets/marbled-tiles-nm.png" />
+            <img id="logo" src="VR_Project_Assets/logo.png" />
+            <img id="lake-como" src="VR_Project_Assets/lake-como.jpg" />
+            <img id="wood" src="VR_Project_Assets/wood-material-background-wallpaper-texture-concept.jpg" />
+            <img id="wood-nm" src="VR_Project_Assets/wood-nm.png" />
+            <img id="paper" src="VR_Project_Assets/design-space-paper-textured-background.jpg" />
+            <img id="paper-nm" src="VR_Project_Assets/paper-nm.jpg" />
+            <a-asset-item id="stove" src="VR_Project_Assets/gas_stove.glb"></a-asset-item>
+            <a-asset-item id="counter-table" src="VR_Project_Assets/litewall_counter_table.glb" />
+            <a-asset-item id="fridge" src="VR_Project_Assets/fridge.glb" />
+            <a-asset-item id="counter-sink" src="VR_Project_Assets/kitchen-sink.glb" />
+            <a-asset-item id="circle-dough" src="VR_Project_Assets/dough.glb" />
+            <a-asset-item id="pizza-sauce" src="VR_Project_Assets/hot_sauce.glb" />
+            <a-asset-item id="sauce-dispenser" src="VR_Project_Assets/sauce_dispenser.glb" />
+            <!-- <a-asset-item id="sauce-dispenser" src="sauce_dispenser.glb" /> -->
+            <a-asset-item id="baseleverpart" src="baselever.glb" />
+            <a-asset-item id="redleverpart" src="redleverpart.glb" />
+
+
+
+            <a-asset-item id="sauce-pizza" src="VR_Project_Assets/sauce_with_pizza.glb" />
+            <a-asset-item id="cheese-pizza" src="VR_Project_Assets/crust-cheese.glb" />
+            <a-asset-item id="tray" src="VR_Project_Assets/cc0_-_tray.glb" />
+            <a-asset-item id="cheese-pizza_model" src="VR_Project_Assets/crust-cheese (1).glb" />
+
+            <a-asset-item id="pepperoni-on-pizza" src="VR_Project_Assets/pep-pizzza.glb" />
+
+            <a-asset-item id="ovenwithoutdoor" src="VR_Project_Assets/ovenrotated.glb" />
+            <!-- <a-asset-item id="ovendoor" src="VR_Project_Assets/OVENDOOR.glb" /> -->
+
+            <a-asset-item id="ovenbutton" src="VR_Project_Assets/button.obj" />
+            <a-asset-item id="ovenbuttonmtl" src="VR_Project_Assets/button.mtl" />
+
+            <a-asset-item id="final-pizza" src="VR_Project_Assets/final-pizza.glb" />
+
+            <a-asset-item id="ovenwithtextures" src="VR_Project_Assets/ovenwithtextures.glb" />
+            <a-asset-item id="water-dispenser" src="VR_Project_Assets/brio_water_dispenser.glb"/>
+
+        </a-assets>
+
+        <a-entity gyroscope-controls></a-entity>
+
+        <a-entity id="pov" progressive-controls position="0 1 0" shadow body="type:static;" collider-tracker></a-entity>
+
+        <a-entity collision-listener></a-entity>
+        <a-cursor></a-cursor>
+
+        <a-sky src="https://cdn.glitch.global/f26b246a-f093-4f0c-827d-7f49a74f3d7f/texture.jpg?v=1700735459331"></a-sky>
+
+        <!--       <a-camera id="pov" position="0 10 0"></a-camera> -->
+        <a-box position="0 -8 -3" material="color:white;
+                                            src:#tiles;
+                                            repeat:10 40;
+                                            normal-map:#tiles-nm;
+                                            normal-scale:50 0.5 35;
+                                            normal-texture-repeat:10 40;
+                                            roughness:0.5;" rotation="0 0 0" scale="100 1 70"
+            body="type:static; mass:0; shape:box">
+
+
+        </a-box>
+        <!-- <a-sound id="stove-sound"
+            src="https://cdn.glitch.global/f26b246a-f093-4f0c-827d-7f49a74f3d7f/frying-in-a-pan-6017.mp3?v=1701030100912"
+            autoplay="false" position="-4 5.5 -12"></a-sound> -->
+        <a-entity id="stovee" gltf-model="#stove" position="-4 -2.5 -12" rotation="0 0 0" scale="0.2 0.15 0.2" shadow
+            body="type: static; mass: 2; shape: box;" static-body collider click-handler></a-entity>
+        <a-entity gltf-model="#fryingPan" position="-4 1 -14" rotation="0 0 0" scale="0.1 0.1 0.1" shadow
+            body="shape: box;" grabbable collision-tracker></a-entity>
+        <a-entity gltf-model="#counter-table" position="-15 -7 -2" scale="0.2 0.2 0.2"></a-entity>
+        <a-entity gltf-model="#fridge" position="-20 -7 -14" scale="0.1 0.1 0.1"></a-entity>
+        <a-entity gltf-model="#counter-sink" position="20 -0.75 -14" scale="0.5 0.2 0.2" rotation="0 0 0" shadow
+            body="type: static; mass: 0; shape: box; rotation:90 90 90"></a-entity>
+        <a-entity id="knife" class="collider" gltf-model="#knife" position="22 0 -14" scale="0.05 0.05 0.05"
+            rotation="0 0 0" shadow body="shape: box;" grabbable collision-tracker></a-entity>
+        <a-entity class="collider" id="rolling-pin" gltf-model="#roll" position="23 -0.75 -14" scale="0.005 0.005 0.005"
+            rotation="0 0 0" shadow body="shape: box;" grabbable collision-tracker></a-entity>
+        <a-entity gltf-model="#cheese" position="25 0 -14" scale="0.9 0.9 0.9" rotation="0 0 0" shadow
+            body="shape: box;" grabbable collision-tracker></a-entity>
+        <a-entity class="collider" id="small-dough" gltf-model="#circle-dough" position="27 0 -15"
+            scale="0.02 0.02 0.02" body="shape: box;" grabbable collision-tracker></a-entity>
+        <a-entity class="collider" id="sauce" gltf-model="#pizza-sauce" position="29 0 -15" scale="1 1 1"
+            body="shape: box;" grabbable collision-tracker></a-entity>
+        <a-entity class="collider" id="dispenser" gltf-model="#sauce-dispenser" position="30 5 -21" scale="1 1 1"
+            body="type:static; shape: box;" grabbable collision-tracker></a-entity>
+
+
+
+        <a-entity id="tray-pepp" gltf-model="#tray" position="36 -1.5 -14.5" scale="10 10 10"
+            body="type:static; shape:box;" grabbable collision-tracker></a-entity>
+        <a-entity id="pepperoniPiece1" class="pep collider" gltf-model="#pepeporoni" position="35 0 -14.5"
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+        <a-entity id="pepperoniPiece2" class="pep collider" gltf-model="#pepeporoni" position="35.5 0 -14.5"
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+        <a-entity id="pepperoniPiece3" class="pep collider" gltf-model="#pepeporoni" position="35.75 0 -14.5"
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+        <a-entity id="pepperoniPiece4" class="pep collider" gltf-model="#pepeporoni" position="36 0 -14.5"
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+        <a-entity id="pepperoniPiece5" class="pep collider" gltf-model="#pepeporoni" position="36 0 -14.5"
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+        <a-entity id="pepperoniPiece6" class="pep collider" gltf-model="#pepeporoni" position="38 0 -14.5"
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+        <a-entity id="pepperoniPiece7" class="pep collider" gltf-model="#pepeporoni" position="38.5 0 -14.5"
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+
+
+        <!-- <a-entity gltf-model="#ovenwithoutdoor" position="-4 -7.5 8" rotation="0 0 0" scale="8 8 8" shadow
+            body="type: static; mass: 2; shape: box;" static-body collider></a-entity> -->
+
+
+
+
+
+        <!-- <a-entity gltf-model="#ovenwithoutdoor" position="-4 -7.5 8" rotation="0 0 0" scale="8 8 8"></a-entity> -->
+
+        <a-entity gltf-model="#ovenwithtextures" position="-4 -7.5 18.5" rotation="0 0 0" scale="8 8 8"></a-entity>
+
+
+
+
+
+
+        <!-- <a-entity id="testingpizzapepperoni" gltf-model="#pepperoni-on-pizza" position="-4.7 -3.1 19.25"
+            scale="0.03 0.03 0.02"></a-entity> -->
+
+
+
+
+        <!-- <a-box color="#808080" position="-4.7 -4 19" rotation="90 0 -90" scale="2.5 5 0.1" shadow
+            body="type: static; mass: 10; shape: box;" collider></a-box> -->
+
+        <!-- <a-box position="-4.7 4 19" scale="2.5 5 0.1" shadow body="type: static; mass: 10; shape: box;"
+            collider></a-box> -->
+
+        <!-- USING THESE -->
+        <!-- <a-entity id="testingpizzapepperoni" gltf-model="#final-pizza" position="-4.7 -3.1 19.25"
+            scale="2 1 1.6"></a-entity> -->
+
+        <a-box id="pizzaholderinoven" color="black" position="-4.7 -4 18.5" scale="5 0.1 4" shadow
+            body="type: static; mass: 2; shape: box;" static-body collider></a-box>
+
+
+
+
+
+
+        <!-- <a-entity gltf-model="#ovendoor" position="-4 5.5 5" rotation="0 90 45" scale="8 8 8"></a-entity> -->
+
+        <!-- <a-entity gltf-model="#ovendoor" position="-4 -2.5 5" rotation="0 90 0" scale="8 8 8"></a-entity> -->
+
+        <!-- <a-box position="-4.5 -2.5 21" rotation=" 0 0 -90" scale="2 5 0.1"></a-box> -->
+
+        <!-- ORIGNINAL POSITIONNNN -->
+        <!-- scale="1 2 1" -->
+        <a-entity id="ovendoor" class="collider" position="-4.5 -4.1 20.8" rotation="0 0 0" shadow
+            body="type: static; mass: 2; shape: box;" static-body collider>
+            <a-box position="0 1 0" rotation="0 0 -90" scale="2 5 0.1"></a-box>
+        </a-entity>
+
+        <!-- AFTER ROTATION -->
+        <!-- <a-entity position="-4.7 -3.5 20.6" rotation="90 0 0">
+            <a-box position="0 1 0" rotation="0 0 -90" scale="2 5 0.1"></a-box>
+        </a-entity> -->
+
+        <a-sphere id="openovendoor" position="-1.75 0 21" radius="0.2" color="#7f4f24"
+            event-set__enter="_event: mouseenter; material.color: #a68a64"
+            event-set__leave="_event: mouseleave; material.color: #7f4f24" event-set__rotation="_event: click;
+                                    _target: #ovendoor;
+                                    animation.property: rotation;
+                               animation.to: 80 0 0;
+                               animation.dur: 2000;
+                               animation.easing: easeInQuad">
+        </a-sphere>
+
+        <a-sphere id="closeovendoor" position="-1.75 -0.5 21" radius="0.2" color="#7f4f24"
+            event-set__enter="_event: mouseenter; material.color: #a68a64"
+            event-set__leave="_event: mouseleave; material.color: #7f4f24" event-set__rotation="_event: click;
+                                    _target: #ovendoor;
+                                    animation.property: rotation;
+                               animation.to: 0 0 0;
+                               animation.dur: 2000;
+                               animation.easing: easeInQuad">
+        </a-sphere>
+
+        <!-- <a-sphere id="startcooking" position="-8 -0.5 21" radius="0.2" color="#7f4f24"
+            event-set__enter="_event: mouseenter; material.color: #a68a64"
+            event-set__leave="_event: mouseleave; material.color: #7f4f24" event-set__rotation="_event: click;
+                                    _target: #ovendoor;
+                                    animation.property: rotation;
+                               animation.to: 0 0 0;
+                               animation.dur: 2000;
+                               animation.easing: easeInQuad">
+        </a-sphere> -->
+
+
+        <!-- <a-box position="-4.7 -3.5 21.6" rotation=" 90 0 -90" scale="2 5 0.1"></a-box> -->
+
+        <!-- <a-entity rotation="90 0 0" obj-model="obj: #ovenbutton; mtl: #ovenbuttonmtl" position="-4 -0.5 21" scale="0.05 0.05
+            0.05"></a-entity> -->
+
+        <a-entity id="startcooking" position="-8 -0.5 21" rotation="90 0 0"
+            obj-model="obj: #ovenbutton; mtl: #ovenbuttonmtl" scale="0.05 0.05
+            0.05" event-set__rotation="_event: click;
+                                    _target: #ovendoor;
+                                    animation.property: rotation;
+                               animation.to: 0 0 0;
+                               animation.dur: 2000;
+                               animation.easing: easeInQuad"></a-entity>
+
+
+        <a-box position="-5 -4.5 21" width="3" height="0.8" depth="0.1" color="white" material="color:white;
+                               src:#paper;
+                               repeat:10 10;
+                               normal-map:#paper-nm;
+                               normal-scale:10 10;
+                               normal-texture-repeat:10 10;
+                               roughness:0.5;">
+
+            <a-text id="oventime" value="NOT STARTED" scale="2 2 2" color="purple" position="-1 0 0.06" rotation="0 0 0"
+                width="3" wrapcount="10"></a-text>
+
+
+        </a-box>
+
+
+
+
+        <a-entity id="ketchupDispenser" gltf-model="#sauce-dispenser" position="2 2.5 -15.1" scale="1 1 1"></a-entity>
+
+        <a-entity id="cheeseDispenser" gltf-model="#sauce-dispenser" position="6 2.5 -15.1" scale="1 1 1"></a-entity>
+
+        <a-entity id="baselever" gltf-model="#baseleverpart" position="2 3.6 -14.6" scale="0.35 0.35 0.35"
+            rotation="90 0 0">
+
+        </a-entity>
+
+        <a-entity id="baselever2" gltf-model="#baseleverpart" position="2 3.6 -14.6" scale="0.35 0.35 0.35"
+            rotation="90 0 0">
+
+        </a-entity>
+
+        <a-entity id="redlever" gltf-model="#redleverpart" position="2 3.6 -14.5" scale="0.35 0.35 0.35"
+            rotation="20 0 0"></a-entity>
+
+        <a-entity id="redlever2" gltf-model="#redleverpart" position="6 3.6 -14.5" scale="0.35 0.35 0.35"
+            rotation="20 0 0"></a-entity>
+
+
+        <a-sphere id="cheesetrigger" position="2 2 -12" radius="0.2" color="#7f4f24"
+            event-set__enter="_event: mouseenter; material.color: #a68a64"
+            event-set__leave="_event: mouseleave; material.color: #7f4f24" event-set__rotation="_event: click;
+                                    _target: #redlever;
+                                    animation.property: rotation;
+                               animation.to: 90 0 0;
+                               animation.dur: 1500;
+                               animation.easing: easeInOutBack" start-particles-on-click2>
+        </a-sphere>
+
+        <a-sphere id="ketchuptrigger" position="6 2 -12" radius="0.2" color="#7f4f24"
+            event-set__enter="_event: mouseenter; material.color: #a68a64"
+            event-set__leave="_event: mouseleave; material.color: #7f4f24" event-set__rotation="_event: click;
+                                    _target: #redlever2;
+                                    animation.property: rotation;
+                               animation.to: 90 0 0;
+                               animation.dur: 1500;
+                               animation.easing: easeInOutBack" start-particles-on-click>
+        </a-sphere>
+
+
+
+
+
+
+
+
+        <a-box position="50 12 -3" material="color:brown;
+                                            src:#wood;
+                                            repeat:10 40;
+                                            normal-map:#wood-nm;
+                                            normal-scale:10 10;
+                                            normal-texture-repeat:10 10;
+                                            roughness:0.5;
+                                          " rotation="0 -90 -90" width="5" height="8" scale="8 5">
+            <a-image src="#lake-como" width="5" height="2" rotation="0 0 90" position="0 0 2"></a-image>
+        </a-box>
+
+
+        <a-box position="-50 12 -3" material="color:brown;
+                                            src:#wood;
+                                            repeat:10 40;
+                                            normal-map:#wood-nm;
+                                            normal-scale:10 10;
+                                            normal-texture-repeat:10 10;
+                                            roughness:0.5;" rotation="0 -90 0" width="5" height="8" scale="8 5">
+        </a-box>
+
+        <a-box position="-50 12 -3" material="color:brown;
+                                            src:#wood;
+                                            repeat:10 20;
+                                            normal-map:#wood-nm;
+                                            normal-scale:10 10;
+                                            normal-texture-repeat:10 10;
+                                            roughness:0.5;" rotation="0 -90 0" width="5" height="8" scale="8 5">
+            <a-image src="#logo" width="3" height="3" rotation="0 -180 -360" position="0 0 -2"></a-image>
+
+        </a-box>
+
+        <a-box position="0 12 -22" material="color:brown;
+                                            src:#wood;
+                                            repeat:10 10;
+                                            normal-map:#wood-nm;
+                                            normal-scale:10 10;
+                                            normal-texture-repeat:10 10;
+                                            roughness:0.5;" rotation="0 0 -90" width="5" height="10" scale="8 10">
+            <a-box position="-1 0 2" width="1" height="3" color="white" material="color:white;
+                                            src:#paper;
+                                            repeat:10 10;
+                                            normal-map:#paper-nm;
+                                            normal-scale:10 10;
+                                            normal-texture-repeat:10 10;
+                                            roughness:0.5;">
+
+                <a-text id="recipe" value="Hello! Welcome to the Virtual Cooking Academy\n\n Please press on next"
+                    color="purple" position="0 -1.4 1" rotation="0 0 90" width="3" wrapcount="10"></a-text>
+
+
+            </a-box>
+
+        </a-box>
+
+
+
+
+
+    </a-scene>
+</body>
+
+</html>
