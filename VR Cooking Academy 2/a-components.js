@@ -98,7 +98,7 @@ AFRAME.registerComponent('start-particles-on-click', {
                     newObject.setAttribute('scale', '0.03 0.03 0.03');
                     newObject.setAttribute('position', position);
                     newObject.setAttribute('id', 'pizza-cheese');
-                    newObject.setAttribute('collision-tracker', '');
+                    // newObject.setAttribute('collision-tracker', '');
                     parent.appendChild(newObject);
                     newObject.setAttribute('body', 'shape:box; mass:2');
                     newObject.setAttribute('grabbable', '');
@@ -261,7 +261,7 @@ AFRAME.registerComponent('start-particles-on-click2', {
                     newObject.setAttribute('scale', '0.04 0.04 0.04');
                     newObject.setAttribute('position', position);
                     newObject.setAttribute('id', 'pizza-sauce2');
-                    newObject.setAttribute('collision-tracker', '');
+                    // newObject.setAttribute('collision-tracker', '');
                     parent.appendChild(newObject);
                     // newObject.setAttribute('body', 'shape:box; mass:10; friction:1; linearDamping: 0.5');
                     newObject.setAttribute('body', 'shape:box; mass:10');

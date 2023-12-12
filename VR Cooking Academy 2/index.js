@@ -14,29 +14,70 @@ window.onload = function () {
         if (i > 10) {
             return;
         }
+        // if (i == 4) {
+        //     if (document.getElementById("emptyDough") == null) {
+        //         console.log("You have not yet rolled the dough!");
+        //         let recipe = document.getElementById("recipe");
+        //         i--;
+        //         console.log("Before Setting the red color ", recipe);
+        //         recipe.setAttribute('color', "red");
+        //         // let recipe2 = document.getElementById("recipe");
+
+        //         console.log("Before removing the attribute value ", recipe);
+        //         recipe.removeAttribute('value');
+
+        //         console.log("After removing the attribute value ", recipe);
+        //         recipe.setAttribute('value', "You have not yet rolled the dough!");
+
+        //         console.log("After setting the new attribute value ", recipe);
+        //         // for (let i = 0; i < 100; i++) {
+        //         // }
+        //         // recipe.setAttribute('color', "purple");
+
+        //     }
+        // }
+
         if (i == 4) {
             if (document.getElementById("emptyDough") == null) {
                 console.log("You have not yet rolled the dough!");
                 let recipe = document.getElementById("recipe");
                 i--;
-                // recipe.setAttribute('color', "red");
-                recipe.setAttribute('value', "You have not yet rolled the dough!");
+                console.log("Before Setting the red color ", recipe);
+                recipe.setAttribute('color', "red");
 
-                for (let i = 0; i < 100; i++) {
-                }
+                console.log("Before removing the attribute value ", recipe);
+                recipe.removeAttribute('value');
+
+                console.log("After removing the attribute value ", recipe);
+                setTimeout(function () {
+                    recipe.setAttribute('value', "You have not yet rolled the dough!");
+                    console.log("After setting the new attribute value ", recipe);
+                }, 0);
+            }
+            else {
+                let recipe = document.getElementById("recipe");
                 recipe.setAttribute('color', "purple");
-
             }
         }
 
         if (i == 5) {
+
             if (document.getElementById("pizza-sauce2") == null) {
                 console.log("Did not add the pizza sauce!");
                 i--;
                 let recipe = document.getElementById("recipe");
-                // recipe.setAttribute('color', "red");
-                recipe.setAttribute('value', "You have not yet added the pizza sauce!");
+                recipe.setAttribute('color', "red");
 
+                setTimeout(function () {
+                    recipe.setAttribute('value', "You have not yet added the pizza sauce!");
+
+                }, 0);
+                // recipe.setAttribute('value', "You have not yet added the pizza sauce!");
+
+            }
+            else {
+                let recipe = document.getElementById("recipe");
+                recipe.setAttribute('color', "purple");
             }
         }
 
@@ -45,8 +86,19 @@ window.onload = function () {
                 console.log("Did not add the cheese on the pizza yet!");
                 i--;
                 let recipe = document.getElementById("recipe");
-                // recipe.setAttribute('color', "red");
-                recipe.setAttribute('value', "You have not yet added the cheese on the pizza yet!");
+                recipe.setAttribute('color', "red");
+
+                setTimeout(function () {
+                    recipe.setAttribute('value', "You have not yet added the cheese on the pizza yet!");
+
+                }, 0);
+                // recipe.setAttribute('value', "You have not yet added the cheese on the pizza yet!");
+            }
+            else {
+
+                let recipe = document.getElementById("recipe");
+                recipe.setAttribute('color', "purple");
+
             }
         }
 
@@ -55,8 +107,19 @@ window.onload = function () {
                 console.log("Did not add the 3 pieces of pepperoni yet!");
                 i--;
                 let recipe = document.getElementById("recipe");
-                // recipe.setAttribute('color', "red");
-                recipe.setAttribute('value', "You have not yet added the 3 pieces of Pepperoni yet!");
+                recipe.setAttribute('color', "red");
+
+                setTimeout(function () {
+                    recipe.setAttribute('value', "You have not yet added the pieces of Pepperoni yet!");
+
+                }, 0);
+                // recipe.setAttribute('value', "You have not yet added the 3 pieces of Pepperoni yet!");
+            }
+            else {
+
+                let recipe = document.getElementById("recipe");
+                recipe.setAttribute('color', "purple");
+
             }
         }
 
@@ -65,8 +128,18 @@ window.onload = function () {
                 console.log("You did not cook the pizza in the oven yet");
                 i--;
                 let recipe = document.getElementById("recipe");
-                // recipe.setAttribute('color', "red");
-                recipe.setAttribute('value', "You did not cook the pizza in the oven yet!");
+                recipe.setAttribute('color', "red");
+                setTimeout(function () {
+                    recipe.setAttribute('value', "You did not cook the pizza in the oven yet!");
+
+                }, 0);
+                // recipe.setAttribute('value', "You did not cook the pizza in the oven yet!");
+            }
+            else {
+
+                let recipe = document.getElementById("recipe");
+                recipe.setAttribute('color', "purple");
+
             }
         }
 
@@ -184,7 +257,7 @@ window.onload = function () {
                 newObject4.setAttribute('body', 'shape:box');
                 newObject4.setAttribute('grabbable', '');
                 newObject4.setAttribute('aabb-collider', 'objects: .collider');
-                newObject4.setAttribute('collision-tracker', '');
+                // newObject4.setAttribute('collision-tracker', '');
                 parent.appendChild(newObject4);
 
 
@@ -267,7 +340,7 @@ window.onload = function () {
                         newObject.setAttribute('id', 'emptyDough');
                         newObject.setAttribute('body', 'shape:box');
                         newObject.setAttribute('grabbable', '');
-                        newObject.setAttribute('collision-tracker', '');
+                        // newObject.setAttribute('collision-tracker', '');
                         parent.appendChild(newObject);
                     }, 3000)
                 }
@@ -305,7 +378,7 @@ window.onload = function () {
                         newObject.setAttribute('body', 'shape:box');
                         newObject.setAttribute('grabbable', '');
                         newObject.setAttribute('aabb-collider', 'objects: .collider');
-                        newObject.setAttribute('collision-tracker', '');
+                        // newObject.setAttribute('collision-tracker', '');
                         parent.appendChild(newObject);
 
 
@@ -324,7 +397,7 @@ window.onload = function () {
                         newObject2.setAttribute('body', 'shape:box');
                         newObject2.setAttribute('grabbable', '');
                         newObject2.setAttribute('aabb-collider', 'objects: .collider');
-                        newObject2.setAttribute('collision-tracker', '');
+                        // newObject2.setAttribute('collision-tracker', '');
 
 
                         // Append the new entity to the scene
@@ -399,7 +472,7 @@ window.onload = function () {
                     newObject3.setAttribute('id', 'pepperoni-pizza');
                     newObject3.setAttribute('grabbable', '');
                     newObject3.setAttribute('aabb-collider', 'objects: .collider');
-                    newObject3.setAttribute('collision-tracker', '');
+                    // newObject3.setAttribute('collision-tracker', '');
                     parent.appendChild(newObject3);
 
                 }

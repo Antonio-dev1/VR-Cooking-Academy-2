@@ -73,7 +73,7 @@
           <button class="b3">Up</button> -->
         <button id="next" class="b4">Next</button>
     </div>
-    <a-scene physics="debug:true; gravity: -9.8" cursor="rayOrigin: mouse">
+    <a-scene physics="debug:false; gravity: -9.8" cursor="rayOrigin: mouse">
         <a-assets>
             <a-asset-item id="knife" src="VR_Project_Assets/good-knife.glb"></a-asset-item>
             <a-asset-item id="emptyCrust" src="VR_Project_Assets/Making the Crust.glb"></a-asset-item>
@@ -174,15 +174,15 @@
         <a-entity gltf-model="#counter-sink" position="20 -0.75 -14" scale="0.5 0.2 0.2" rotation="0 0 0" shadow
             body="type: static; mass: 0; shape: box; rotation:90 90 90"></a-entity>
         <a-entity id="knife" class="collider" gltf-model="#knife" position="22 -2 -14" scale="0.01 0.01 0.01"
-            rotation="0 0 0" shadow body="shape: box;" grabbable collision-tracker></a-entity>
+            rotation="0 0 0" shadow body="shape: box;" grabbable ></a-entity>
         <a-entity class="collider" id="rolling-pin" gltf-model="#roll" position="23 -0.75 -14" scale="0.005 0.005 0.005"
-            rotation="0 0 0" shadow body="shape: box;" grabbable collision-tracker></a-entity>
+            rotation="0 0 0" shadow body="shape: box;" grabbable ></a-entity>
         <a-entity gltf-model="#cheese" position="25 0 -14" scale="0.9 0.9 0.9" rotation="0 0 0" shadow
-            body="shape: box;" grabbable collision-tracker></a-entity>
+            body="shape: box;" grabbable ></a-entity>
         <a-entity class="collider" id="small-dough" gltf-model="#circle-dough" position="27 0 -15"
-            scale="0.02 0.02 0.02" body="shape: box;" grabbable collision-tracker></a-entity>
+            scale="0.02 0.02 0.02" body="shape: box;" grabbable ></a-entity>
         <a-entity class="collider" id="sauce" gltf-model="#pizza-sauce" position="29 0 -15" scale="1 1 1"
-            body="shape: box;" grabbable collision-tracker></a-entity>
+            body="shape: box;" grabbable ></a-entity>
             <a-entity id="cafeplace" gltf-model="#cafe" position="-26 -8 15" scale="10 18 10" rotation="0 0 0"></a-entity>
         <!-- <a-entity class="collider" id="dispenser" gltf-model="#sauce-dispenser" position="30 5 -21" scale="1 1 1"
             body="type:static; shape: box;" grabbable collision-tracker></a-entity> -->
@@ -197,21 +197,21 @@
             rotation="-90 0 0"></a-entity>
 
         <a-entity id="tray-pepp" gltf-model="#tray" position="36 -1.5 -14.5" scale="10 10 10"
-            body="type:static; shape:box;" grabbable collision-tracker></a-entity>
+            body="type:static; shape:box;" grabbable ></a-entity>
         <a-entity id="pepperoniPiece1" class="pep collider" gltf-model="#pepeporoni" position="35 0 -14.5"
-            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable ></a-entity>
         <a-entity id="pepperoniPiece2" class="pep collider" gltf-model="#pepeporoni" position="35.5 0 -14.5"
-            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable ></a-entity>
         <a-entity id="pepperoniPiece3" class="pep collider" gltf-model="#pepeporoni" position="35.75 0 -14.5"
-            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable ></a-entity>
         <a-entity id="pepperoniPiece4" class="pep collider" gltf-model="#pepeporoni" position="36 0 -14.5"
-            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable ></a-entity>
         <a-entity id="pepperoniPiece5" class="pep collider" gltf-model="#pepeporoni" position="36 0 -14.5"
-            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable ></a-entity>
         <a-entity id="pepperoniPiece6" class="pep collider" gltf-model="#pepeporoni" position="38 0 -14.5"
-            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable ></a-entity>
         <a-entity id="pepperoniPiece7" class="pep collider" gltf-model="#pepeporoni" position="38.5 0 -14.5"
-            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable collision-tracker></a-entity>
+            scale="0.1 0.1 0.1" body="shape:box; mass:30" grabbable ></a-entity>
 
         <!-- lights -->
         <a-entity light="type: point;  
@@ -557,7 +557,7 @@
             </a-box> -->
 
         </a-box>
-        <a-sound src="VR_Project_Assets/relaxing-mountains-rivers-streams-running-water-18178.mp3" volume="0.3" autoplay="true" position="-30 5 -28"></a-sound>
+        <a-sound src="VR_Project_Assets/relaxing-mountains-rivers-streams-running-water-18178.mp3" volume="0.5" autoplay="true" position="0 0 0"></a-sound>
         <a-box position="-30 5 -28" material="src:#wall2;
         repeat:3 4;
         normal-map:#wall2-nm;
