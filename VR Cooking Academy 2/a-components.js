@@ -95,7 +95,7 @@ AFRAME.registerComponent('start-particles-on-click', {
                     // Model loaded successfully, you can use it in your scene
                     console.log('Model loaded successfully!');
                     newObject.setAttribute('gltf-model', '#cheese-pizza');
-                    newObject.setAttribute('scale', '0.04 0.04 0.04');
+                    newObject.setAttribute('scale', '0.03 0.03 0.03');
                     newObject.setAttribute('position', position);
                     newObject.setAttribute('id', 'pizza-cheese');
                     newObject.setAttribute('collision-tracker', '');
@@ -227,9 +227,9 @@ AFRAME.registerComponent('start-particles-on-click2', {
                     //     easing: 'easeOutQuad'
                     // });
                      // get the iframe element
-                    // var sound = document.getElementById('ketchup-sound'); // get the audio element from the iframe
-                    // console.log(sound);
-                    // sound.playSound(); // play the audio
+                    var sound = document.getElementById('ketchup-sound'); // get the audio element from the iframe
+                    console.log(sound);
+                     sound.playSound(); // play the audio
                     redLever.setAttribute('animation',
                         'property: rotation; to: 20 0 0; dur: 2500; easing: linear'
                     );

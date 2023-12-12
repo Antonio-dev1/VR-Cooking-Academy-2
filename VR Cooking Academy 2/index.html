@@ -117,7 +117,7 @@
 
             <a-asset-item id="final-pizza" src="VR_Project_Assets/final-pizza.glb" />
 
-            <a-asset-item id="ovenwithtextures" src="VR_Project_Assets/ovenwithtextures.glb" />
+            <a-asset-item id="ovenwithtextures"  src="VR_Project_Assets/ovenwithtextures.glb" />
             <a-asset-item id="water-dispenser" src="VR_Project_Assets/brio_water_dispenser.glb"/>
             <a-asset-item id="tiles" src="VR_Project_Assets/marbled-tile.jpg"/>
             <a-asset-item id="kitchen-sink" src="VR_Project_Assets/kitchen_sink_in_cupboard.glb"/>
@@ -136,7 +136,8 @@
             <a-asset-item id="plant-white" src="VR_Project_Assets/plants_are_nice.glb"/>
             <a-asset-item id="green-button" src="VR_Project_Assets/green-but.glb"/>
             <a-asset-item id="red-button" src="VR_Project_Assets/red-but.glb"/>
-
+            <audio id="ketchup-sound" src="./VR_Project_Assets/cartoon-splat-6086.mp3"></audio>
+            <audio id="oven-sound" src="./VR_Project_Assets/microwave-timer-117077.mp3"></audio>
 
         </a-assets>
 
@@ -264,7 +265,7 @@
 
         <!-- <a-entity gltf-model="#ovenwithoutdoor" position="-4 -7.5 8" rotation="0 0 0" scale="8 8 8"></a-entity> -->
 
-        <a-entity gltf-model="#ovenwithtextures" position="-4 -7.5 -14" rotation="0 0 0" scale="8 8 8"></a-entity>
+        <a-entity id="final-oven" sound="src: #oven-sound" gltf-model="#ovenwithtextures" position="-4 -7.5 -14" rotation="0 0 0" scale="8 8 8"></a-entity>
 
         <a-entity id="celebration" position="5 -30 5"></a-entity>
 
@@ -401,8 +402,6 @@
                                animation.to: 0 0 0;
                                animation.dur: 2000;
                                animation.easing: easeInQuad"></a-entity>
-        <a-audio id="oven-audio" src="VR_Project_Assets/microwave-timer-117077.mp3" position="-8 -0.5 -11.5"></a-audio>
-
 
         <a-box position="-5 -4.5 -11.5" width="3" height="0.8" depth="0.1" color="white" material="color:white;
                                src:#paper;
@@ -427,7 +426,6 @@
         <a-box position="6 3 -16.1" rotation="0 0 90" width="2" height="10" depth="0.1" color="white"></a-box>
 
         <a-entity id="ketchupDispenser" gltf-model="#sauce-dispenser" position="2 2.5 -15.1" scale="1 1 1"></a-entity>
-        <a-audio id="ketchup-sound" src="./VR_Project_Assets/cartoon-splat-6086.mp3" position ="2 2.5 -15.1" ></a-audio>
 
         <a-entity id="cheeseDispenser" gltf-model="#sauce-dispenser" position="6 2.5 -15.1" scale="1 1 1"></a-entity>
 
@@ -454,7 +452,11 @@
             animation.property: rotation;
        animation.to: 90 0 0;
        animation.dur: 1500;
-       animation.easing: easeInOutBack" start-particles-on-click2></a-entity>
+       animation.easing: easeInOutBack" sound="src: #ketchup-sound; 
+            on: click; 
+            volume: 1; 
+            refDistance: 1; 
+            rolloffFactor: 1" start-particles-on-click2></a-entity>
 
         <a-entity id="redlever2" gltf-model="#redleverpart" position="6 3.6 -14.5" scale="0.35 0.35 0.35"
             rotation="20 0 0" event-set__rotation="_event: click;
@@ -462,7 +464,11 @@
             animation.property: rotation;
        animation.to: 90 0 0;
        animation.dur: 1500;
-       animation.easing: easeInOutBack" start-particles-on-click></a-entity>
+       animation.easing: easeInOutBack" sound="src: #ketchup-sound; 
+       on: click; 
+       volume: 1; 
+       refDistance: 1; 
+       rolloffFactor: 1" start-particles-on-click></a-entity>
 
         
 

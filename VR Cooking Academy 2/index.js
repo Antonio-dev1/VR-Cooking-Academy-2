@@ -163,12 +163,15 @@ window.onload = function () {
 
             // byerjaa lezim ma7e l model l juwa eza ken fi whd w aamol whd jdid li huwe final pizza
             let PizzaInOven = document.getElementById("pizza-in-oven");
+            let finalOven = document.getElementById("final-oven");
+
             console.log(PizzaInOven);
             if (PizzaInOven != null) {
                 console.log("ENTERED PIZZAINOVEN NOT NULL IF");
                 let parent = PizzaInOven.parentElement;
                 PizzaInOven.parentElement.removeChild(PizzaInOven);
-
+                //Play sound
+                finalOven.components.sound.playSound();
 
                 const newObject4 = document.createElement('a-entity');
                 newObject4.setAttribute('gltf-model', '#final-pizza');
