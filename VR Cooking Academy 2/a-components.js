@@ -1,7 +1,7 @@
 // Make sure to include the loader file in your project
 
-ketchupDispensingCounter = 0;
-cheeseDispensingCounter = 0;
+let ketchupDispensingCounter = 0;
+let cheeseDispensingCounter = 0;
 
 AFRAME.registerComponent('start-particles-on-click', {
     init: function () {
@@ -226,7 +226,10 @@ AFRAME.registerComponent('start-particles-on-click2', {
                     //     dur: 2500,
                     //     easing: 'easeOutQuad'
                     // });
-
+                     // get the iframe element
+                    // var sound = document.getElementById('ketchup-sound'); // get the audio element from the iframe
+                    // console.log(sound);
+                    // sound.playSound(); // play the audio
                     redLever.setAttribute('animation',
                         'property: rotation; to: 20 0 0; dur: 2500; easing: linear'
                     );

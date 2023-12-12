@@ -1,11 +1,12 @@
 
 window.onload = function () {
 
-    doughmax1 = 0;
-    rollingPin_Dough_Collision = 0;
-    pepCount = 0;
-    lastpepperoniaddedcounter = 0;
-    openopenandpepperonipizzacollision = 0;
+    let doughmax1 = 0;
+    let rollingPin_Dough_Collision = 0;
+    let pepCount = 0;
+    let lastpepperoniaddedcounter = 0;
+    let openopenandpepperonipizzacollision = 0;
+    let birthdaycounter = 0;
 
     const nextRecipe = () => {
         i = i + 1;
@@ -18,7 +19,7 @@ window.onload = function () {
                 console.log("You have not yet rolled the dough!");
                 let recipe = document.getElementById("recipe");
                 i--;
-                recipe.setAttribute('color', "red");
+                // recipe.setAttribute('color', "red");
                 recipe.setAttribute('value', "You have not yet rolled the dough!");
 
                 for (let i = 0; i < 100; i++) {
@@ -33,7 +34,7 @@ window.onload = function () {
                 console.log("Did not add the pizza sauce!");
                 i--;
                 let recipe = document.getElementById("recipe");
-                recipe.setAttribute('color', "red");
+                // recipe.setAttribute('color', "red");
                 recipe.setAttribute('value', "You have not yet added the pizza sauce!");
 
             }
@@ -44,7 +45,7 @@ window.onload = function () {
                 console.log("Did not add the cheese on the pizza yet!");
                 i--;
                 let recipe = document.getElementById("recipe");
-                recipe.setAttribute('color', "red");
+                // recipe.setAttribute('color', "red");
                 recipe.setAttribute('value', "You have not yet added the cheese on the pizza yet!");
             }
         }
@@ -54,7 +55,7 @@ window.onload = function () {
                 console.log("Did not add the 3 pieces of pepperoni yet!");
                 i--;
                 let recipe = document.getElementById("recipe");
-                recipe.setAttribute('color', "red");
+                // recipe.setAttribute('color', "red");
                 recipe.setAttribute('value', "You have not yet added the 3 pieces of Pepperoni yet!");
             }
         }
@@ -64,13 +65,31 @@ window.onload = function () {
                 console.log("You did not cook the pizza in the oven yet");
                 i--;
                 let recipe = document.getElementById("recipe");
-                recipe.setAttribute('color', "red");
+                // recipe.setAttribute('color', "red");
                 recipe.setAttribute('value', "You did not cook the pizza in the oven yet!");
             }
         }
 
         if (i == 9) {
             console.log("Tutorial Complete!");
+
+            // var celebrationparticles = document.querySelector('#celebration');
+            // if (birthdaycounter == 0) {
+            //     celebrationparticles.setAttribute('particle-system',
+            //         'preset: default; color: #f9e154; accelerationValue: 0 -5 0; particleCount: 3000; direction: -1; rotationAxis: x; rotation: 0 0 0'
+            //     );
+
+            //     setTimeout(() => {
+            //         console.log('Deleted the celebration particle system attribute');
+            //         celebrationparticles.removeAttribute('particle-system');
+
+
+            //     }, 10000);
+
+            // }
+            // birthdaycounter = birthdaycounter + 1;
+
+            console.log("Birthday Counter is " + birthdaycounter);
             i--;
 
 
@@ -153,7 +172,7 @@ window.onload = function () {
 
                 const newObject4 = document.createElement('a-entity');
                 newObject4.setAttribute('gltf-model', '#final-pizza');
-                newObject4.setAttribute('position', '-4.7 -3.1 19.25');
+                newObject4.setAttribute('position', '-4.5 -3.1 -13.6');
                 newObject4.setAttribute('id', 'complete-pizza');
                 newObject4.setAttribute('scale', '2 1 1.6');
                 // newObject4.setAttribute('color', collider.getAttribute('color'));
@@ -165,6 +184,24 @@ window.onload = function () {
                 newObject4.setAttribute('collision-tracker', '');
                 parent.appendChild(newObject4);
 
+
+
+                nextRecipe();
+                var celebrationparticles = document.querySelector('#celebration');
+                if (birthdaycounter == 0) {
+                    celebrationparticles.setAttribute('particle-system',
+                        'preset: default; color: #f9e154; accelerationValue: 0 -5 0; particleCount: 3000; direction: -1; rotationAxis: x; rotation: 0 0 0'
+                    );
+
+                    setTimeout(() => {
+                        console.log('Deleted the celebration particle system attribute');
+                        celebrationparticles.removeAttribute('particle-system');
+
+
+                    }, 10000);
+
+                }
+                birthdaycounter = birthdaycounter + 1;
             }
         }, 3000)
 
@@ -390,7 +427,7 @@ window.onload = function () {
 
                     const newObject3 = document.createElement('a-entity');
                     newObject3.setAttribute('gltf-model', '#pepperoni-on-pizza');
-                    newObject3.setAttribute('position', '-4.7 -3.1 19.25');
+                    newObject3.setAttribute('position', '-4.5 -4.1 -13.6');
                     // newObject3.setAttribute('id', 'NEW-SMALL-DOUGH-HALF');
                     // newObject.setAttribute('radius', object.getAttribute('radius') / 2);
                     // newObject.setAttribute('height', object.getAttribute('height') / 2);
